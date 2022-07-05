@@ -2,8 +2,16 @@
 
 This directory (`/project`) will contain all code for our team project.
 
-1. Switch to your personal development branch, e.g. `git branch akeene-dev`
-1. During development update the `pom.xml` to deploy to your personal cloud project ID[^1]. 
+1. Login to [Google Cloud Shell](https://ssh.cloud.google.com/cloudshell/editor)
+1. Clone this repo 
+    ```
+    git clone https://github.com/andy-keene/sps-project-2022.git
+    ```
+1. Switch to your personal development branch
+    ```
+    git branch akeene-dev
+    ```
+1. Update the `pom.xml` to use to your personal cloud project ID[^1] during development. 
 1. Deploy the project from `~/sps-project-2022/project` run 
     ```
     mvn package appengine:deploy
