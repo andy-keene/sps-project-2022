@@ -22,6 +22,7 @@ public class ResourceHandlerServlet extends HttpServlet {
         // Organizer organizer = request.getParameter("organizer-input");
         // int id;
         String eventName = request.getParameter("event-name");
+        String eventDate = request.getParameter("event-date");
         // String[] ageGroup;
         String location = request.getParameter("event-name");
         String link = request.getParameter("link");
@@ -34,7 +35,7 @@ public class ResourceHandlerServlet extends HttpServlet {
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
         FullEntity taskEntity = Entity.newBuilder(keyFactory.newKey())
-                .set("textValue", eventName)
+                .set("eventName", eventName)
                 .build();
         datastore.put(taskEntity);
 
