@@ -27,24 +27,24 @@ public class ResourceListServlet extends HttpServlet {
                 .build();
         QueryResults<Entity> results = datastore.run(query);
 
-        Organizer testOrganizer = new Organizer("test", "test");
-        String[] testArray = new String[2];
+        // Organizer testOrganizer = new Organizer("test", "test");
+        // String[] testArray = new String[]{"test", "hi"};
 
         List<Resource> formResponses = new ArrayList<>();
         while (results.hasNext()) {
             Entity entity = results.next();
 
-            Organizer organizer = testOrganizer;
-            long id = entity.getKey().getId();
-            String eventName = entity.getString("eventName");
-            String eventDate = entity.getString("eventDate");
-            String[] ageGroup = testArray;
-            String location = entity.getString("location");
-            String link = entity.getString("link");
-            String description = entity.getString("description");
-            String[] ethnicity = testArray;
+            // Organizer organizer = testOrganizer;
+            String id = entity.getString("id");
+            // String eventName = entity.getString("eventName");
+            // String eventDate = entity.getString("eventDate");
+            // String[] ageGroup = testArray;
+            // String location = entity.getString("location");
+            // String link = entity.getString("link");
+            // String description = entity.getString("description");
+            // String[] ethnicity = testArray;
 
-            Resource oneMessage = new Resource(organizer, id, eventName, eventDate, testArray, location, link, description, testArray);
+            Resource oneMessage = new Resource(/*organizer, */id/*, eventName, eventDate, ageGroup, location, link, description, ethnicity*/);
             formResponses.add(oneMessage);
         }
         Gson gson = new Gson();

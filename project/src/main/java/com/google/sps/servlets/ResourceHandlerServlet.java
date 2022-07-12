@@ -20,27 +20,27 @@ public class ResourceHandlerServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Get the values entered by the user
         // Organizer organizer = request.getParameter("organizer-input");
-        // int id;
-        String eventName = request.getParameter("event-name");
-        String eventDate = request.getParameter("event-date");
+        String id = request.getParameter("greeting-container");
+        // String eventName = request.getParameter("event-name");
+        // String eventDate = request.getParameter("event-date");
         // String[] ageGroup;
-        String location = request.getParameter("event-name");
-        String link = request.getParameter("link");
-        String description = request.getParameter("description");
+        // String location = request.getParameter("event-name");
+        // String link = request.getParameter("link");
+        // String description = request.getParameter("description");
         // String[] ethnicity;
 
         // Print the value so you can see it in the server logs.
-        System.out.println("You submitted: " + eventName);
+        System.out.println("You submitted: " + id);
 
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
         FullEntity taskEntity = Entity.newBuilder(keyFactory.newKey())
-                .set("eventName", eventName)
+                .set("id", id)
                 .build();
         datastore.put(taskEntity);
 
         // Write the value to the response so the user can see it
         response.setContentType("text/html;");
-        response.getWriter().println("You submitted: " + eventName);
+        response.getWriter().println("You submitted: " + id);
     }
 }
