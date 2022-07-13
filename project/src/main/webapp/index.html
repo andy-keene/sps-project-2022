@@ -1,16 +1,43 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="UTF-8">
     <title>Team Project Landing Page</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
-  </head>
-  <body>
-    <div id="content">
-      <h1>Project Deets</h1>
-      <p>We're going to write a lot of code. Click <button onclick="addMessage()"><b>here</b></button> for advice</p>
-      <div id="greeting-container"></div>
+</head>
+
+<body>
+    <div id="details" class="content">
+        <h1>Project Deets</h1>
+        <p>We're going to write a lot of code. Click <button onclick="addMessage()"><b>here</b></button> for advice</p>
+        <div id="greeting-container"></div>
     </div>
-  </body>
+
+    <!-- Regular form data -->
+    <div id="form-data" class="content">
+        <form id="user-form-data" method="POST">
+            <p>Name<br></p>
+            <textarea type="text" name="name"></textarea>
+            <p>Date<br></p>
+            <textarea type="text" name="date"></textarea>
+            <p>Availability<br></p>
+            <input type="radio" id="avilable-saturday" name="availability" value="saturday">
+            <label for="avilable-saturday">saturday</label>
+            <input type="radio" id="avilable-sunday" name="availability" value="sunday">
+            <label for="avilable-sunday">sunday</label>
+            <!-- Do not allow submit button -->
+            <!-- <input type="submit" /> -->
+        </form>
+        <button onClick="processForm()">Submit via JS</button>
+    </div>
+
+    <div id="resources" class="content">
+        <p>View submitted resources<button onclick="fetchResources()"><b>here</b></button>
+        <div id="fetch-resources-result"></div>
+    </div>
+
+</body>
+
 </html>
