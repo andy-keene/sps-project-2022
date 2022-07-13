@@ -14,126 +14,162 @@
 </head>
 
 <body>
-    <form class="event-org">
-        <p class="font-weight-bold">About Event Organizer</p>
-        <div class="form-group">
-            <label for="inputOrganizerName">Name</label>
-            <div class="row">
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="First name">
+    <!-- Header -->
+    <div class="p-2 text-center bg-info" style="margin-top: 20px;">
+        <h2 class="mb-10 text-white">Add Post Details</h2>
+    </div>
+    <form class="event-org" style="margin: 40px 100px;">
+        <div class="card">
+            <!-- About Event Organizer -->
+            <div class="card-header font-weight-bold">
+                About Event Organizer
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputOrganizerName">Name</label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="First name">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Last name">
+                        </div>
+                    </div>
                 </div>
-                <div class="col">
-                    <input type="text" class="form-control" placeholder="Last name">
+                <div class="form-group">
+                    <label for="inputEmail">Email address</label>
+                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
+                        placeholder="Enter email">
                 </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="inputEmail">Email address</label>
-            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp"
-                placeholder="Enter email">
-        </div>
-        <div class="form-group">
-            <label for="inputPassword">Password</label>
-            <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        </div>
-        <!-- About Event -->
         <br />
-        <p class="font-weight-bold">About Event</p>
-        <div class="form-group">
-            <label for="inputEventName">Name</label>
-            <input type="text" class="form-control" id="inputEventName" placeholder="Name">
-        </div>
-        <div class="form-group">
-            <label for="inputLocation">Location</label>
-            <input type="text" class="form-control" id="inputEventName" placeholder="Location">
-        </div>
-        <div class="form-group">
-            <label for="inputDate">Date and Time</label>
-            <input type="datetime-local" class="form-control" id="inputDate">
-        </div>
-        <div class="form-group">
-            <label for="inputLink">Link</label>
-            <input type="url" class="form-control" id="inputLink" placeholder="Link">
-        </div>
-        <div class="form-group">
-            <label for="inputDesciption">Desciption</label>
-            <div class="input-group ">
-                <textarea class="form-control" id="inputDesciption" placeholder="Desciption"></textarea>
+        <!-- About Event -->
+        <div class="card">
+            <div class="card-header font-weight-bold">
+                About Event
+            </div>
+            <div class="card-body">
+                <div class="form-group">
+                    <label for="inputEventName">Name</label>
+                    <input type="text" class="form-control" id="inputEventName" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="inputLocation">Location</label>
+                    <input type="text" class="form-control" id="inputEventName" placeholder="Location">
+                </div>
+                <div class="form-group">
+                    <label for="inputDate">Date and Time</label>
+                    <input type="datetime-local" class="form-control" id="inputDate">
+                </div>
+                <div class="form-group">
+                    <label for="inputLink">Link</label>
+                    <input type="url" class="form-control" id="inputLink" placeholder="Link">
+                </div>
+                <div class="form-group">
+                    <label for="inputDesciption">Desciption</label>
+                    <div class="input-group ">
+                        <textarea class="form-control" id="inputDesciption" placeholder="Desciption"></textarea>
+                    </div>
+                </div>
+                <div>
+                    <label for="inputAge">Target Age</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">Grade 9</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">Grade 10</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox3"
+                        value="option3">
+                    <label class="form-check-label" for="inlineCheckbox3">Grade 11</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox4"
+                        value="option4">
+                    <label class="form-check-label" for="inlineCheckbox4">Grade 12</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox5"
+                        value="option5">
+                    <label class="form-check-label" for="inlineCheckbox5">Freshman</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox6"
+                        value="option6">
+                    <label class="form-check-label" for="inlineCheckbox6">Sophomore</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox7"
+                        value="option7">
+                    <label class="form-check-label" for="inlineCheckbox7">Junior</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox8"
+                        value="option8">
+                    <label class="form-check-label" for="inlineCheckbox8">Senior</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox9"
+                        value="option9">
+                    <label class="form-check-label" for="inlineCheckbox9">Graduate</label>
+                </div>
+                <div>
+                    <br />
+                    <label for="inputAge">Target Demographic</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox1"
+                        value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">White</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox2"
+                        value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">Black</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox3"
+                        value="option3">
+                    <label class="form-check-label" for="inlineCheckbox3">Hispanic</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox4"
+                        value="option4">
+                    <label class="form-check-label" for="inlineCheckbox4">Asian</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox5"
+                        value="option5">
+                    <label class="form-check-label" for="inlineCheckbox5">American Indian or Alaska Native</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox6"
+                        value="option6">
+                    <label class="form-check-label" for="inlineCheckbox6">Middle Eastern</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox7"
+                        value="option7">
+                    <label class="form-check-label" for="inlineCheckbox7">Two or More Races</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" name="inlineCheckboxOptions" id="inlineCheckbox7"
+                        value="option7">
+                    <label class="form-check-label" for="inlineCheckbox7">Prefer Not to Answer</label>
+                </div>
             </div>
         </div>
-        <div>
-            <label for="inputAge">Target Age</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">Grade 9</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">Grade 10</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-            <label class="form-check-label" for="inlineRadio3">Grade 11</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-            <label class="form-check-label" for="inlineRadio4">Grade 12</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-            <label class="form-check-label" for="inlineRadio5">Freshman</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
-            <label class="form-check-label" for="inlineRadio6">Sophomore</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7" value="option7">
-            <label class="form-check-label" for="inlineRadio7">Junior</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio8" value="option8">
-            <label class="form-check-label" for="inlineRadio8">Senior</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio9" value="option9">
-            <label class="form-check-label" for="inlineRadio9">Graduate</label>
-        </div>
-        <div>
-            <br />
-            <label for="inputAge">Target Demographic</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-            <label class="form-check-label" for="inlineRadio1">White</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-            <label class="form-check-label" for="inlineRadio2">Black</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3">
-            <label class="form-check-label" for="inlineRadio3">Hispanic</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="option4">
-            <label class="form-check-label" for="inlineRadio4">Asian</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="option5">
-            <label class="form-check-label" for="inlineRadio5">American Indian or Alaska Native</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio6" value="option6">
-            <label class="form-check-label" for="inlineRadio6">Middle Eastern</label>
-        </div>
-        <div class="form-check form-check-inline">
-            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio7" value="option7">
-            <label class="form-check-label" for="inlineRadio7">Two or More Races</label>
-        </div>
+        <br />
+        <br />
         <div class="text-right">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-info">Submit</button>
         </div>
 
     </form>
