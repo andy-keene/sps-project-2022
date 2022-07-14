@@ -1,23 +1,14 @@
 {
     "title": "event",
     "type": "object",
-    "properties": {
- 	 "organizer": {
+ 	"organizer": {
         "name": "name",
         "email": "email"
-  	 },
-  	"id": "number",
-    "name": "event_name",
-    "location": {
-        "description": "zip code of event",
-        "type": "number",
-        "minimum": 0,
-        "maximum": 99999
-    },
+  	},
+    "location": "zip code of event",
   	 "link": "link",
   	 "description": "content",
   	 "age": ["9", "10", "11", "12", "freshman", "sophomore", "junior", "senior"],
-  	 "ethnicity": ["white", "hispanic", "african american", "asian", "other"],
+  	 "demographics": ["white", "hispanic", "african american", "asian", "other"],
   	 "date":"date"
-  }
 }
