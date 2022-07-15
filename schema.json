@@ -1,0 +1,14 @@
+{
+    "title": "event",
+    "type": "object",
+ 	"organizer": {
+        "name": "name",
+        "email": "email"
+  	},
+    "location": "zip code of event",
+  	 "link": "link",
+  	 "description": "content",
+  	 "age": ["9", "10", "11", "12", "freshman", "sophomore", "junior", "senior"],
+  	 "demographics": ["white", "hispanic", "african american", "asian", "other"],
+  	 "date":"date"
+}
