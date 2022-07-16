@@ -19,28 +19,29 @@ public class ResourceHandlerServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Get the values entered by the user
-        // Organizer organizer = request.getParameter("organizer-input");
-        String id = request.getParameter("greeting-container");
-        // String eventName = request.getParameter("event-name");
-        // String eventDate = request.getParameter("event-date");
+        String organizerName = request.getParameter("inputName");
+        String organizerEmail = request.getParameter("inputEmail");
+        // String id = request.getParameter("greeting-container");
+        String eventName = request.getParameter("inputEventName");
+        String eventDate = request.getParameter("inputDate");
         // String[] ageGroup;
-        // String location = request.getParameter("event-name");
-        // String link = request.getParameter("link");
-        // String description = request.getParameter("description");
+        String location = request.getParameter("inputEventLocation");
+        String link = request.getParameter("inputLink");
+        String description = request.getParameter("inputDesciption");
         // String[] ethnicity;
 
         // Print the value so you can see it in the server logs.
-        System.out.println("You submitted: " + id);
+        System.out.println("You submitted: " + organizerName);
 
-        Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
-        FullEntity taskEntity = Entity.newBuilder(keyFactory.newKey())
-                .set("id", id)
-                .build();
-        datastore.put(taskEntity);
+        // Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+        // KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
+        // FullEntity taskEntity = Entity.newBuilder(keyFactory.newKey())
+        //         .set("organizerName", organizerName)
+        //         .build();
+        // datastore.put(taskEntity);
 
         // Write the value to the response so the user can see it
         response.setContentType("text/html;");
-        response.getWriter().println("You submitted: " + id);
+        response.getWriter().println("You submitted: " + organizerName);
     }
 }
