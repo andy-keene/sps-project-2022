@@ -33,12 +33,13 @@ public class ResourceHandlerServlet extends HttpServlet {
         // Print the value so you can see it in the server logs.
         System.out.println("You submitted: " + organizerName);
 
-        // Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        // KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
-        // FullEntity taskEntity = Entity.newBuilder(keyFactory.newKey())
-        //         .set("organizerName", organizerName)
-        //         .build();
-        // datastore.put(taskEntity);
+        Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
+        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
+        FullEntity taskEntity = Entity.newBuilder(keyFactory.newKey())
+                .set("organizerName", organizerName)
+                // need to add other ones too, will be able to verify once frontend has JS ready
+                .build();
+        datastore.put(taskEntity);
 
         // Write the value to the response so the user can see it
         response.setContentType("text/html;");
