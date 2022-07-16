@@ -11,7 +11,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-// Do later: import jSoup to sanitize user input
 
 @WebServlet("/resource-handler")
 public class ResourceHandlerServlet extends HttpServlet {
@@ -19,7 +18,7 @@ public class ResourceHandlerServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Get the values entered by the user
-        String organizerName = request.getParameter("inputName");
+        String organizerName = request.getParameter("inputOrganizerName");
         String organizerEmail = request.getParameter("inputEmail");
         // String id = request.getParameter("greeting-container");
         String eventName = request.getParameter("inputEventName");
@@ -32,17 +31,20 @@ public class ResourceHandlerServlet extends HttpServlet {
 
         // Print the value so you can see it in the server logs.
         System.out.println("You submitted: " + organizerName);
+        System.out.println("You submitted: " + organizerEmail);
+        System.out.println("You submitted: " + eventName);
+        System.out.println("You submitted: " + eventDate);
+        System.out.println("You submitted: " + location);
 
-        Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
-        FullEntity taskEntity = Entity.newBuilder(keyFactory.newKey())
-                .set("organizerName", organizerName)
-                // need to add other ones too, will be able to verify once frontend has JS ready
-                .build();
-        datastore.put(taskEntity);
+        // Datastore code
 
         // Write the value to the response so the user can see it
         response.setContentType("text/html;");
         response.getWriter().println("You submitted: " + organizerName);
+        response.getWriter().println("You submitted: " + organizerEmail);
+        response.getWriter().println("You submitted: " + eventName);
+        response.getWriter().println("You submitted: " + eventDate);
+        response.getWriter().println("You submitted: " + location);
+
     }
 }
