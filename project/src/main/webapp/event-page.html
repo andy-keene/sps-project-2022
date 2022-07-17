@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>View Events Details</title>
+    <link rel="stylesheet" href="event-page.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" 
+        rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" 
+        crossorigin="anonymous">
+    <script src="script.js"></script>
+  </head>
+  
+  <body>
+    <div id="content">
+      <h2>Events Details</h2>
+    </div>
+    <div class="container-fluid">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+    <p></p>
+
+    <div class="container-fluid">
+        <!-- Card sizing using grid markup -->
+        <div class="row mb-4">
+            <div class="col-sm-3">
+                <div class="card" id="search">
+                    <div class="card-body">
+                        <h5>Filter</h5>
+                        Sort by:<br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1
+                            <label class="form-check-label" for="flexRadioDefault1">
+                            Date
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                            Distance
+                            </label>
+                        </div>
+                        <p></p>
+                        Event type: <br>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                            <label class="form-check-label" for="exampleRadios1">
+                                Online
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                            <label class="form-check-label" for="exampleRadios2">
+                                In person
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3" disabled>
+                            <label class="form-check-label" for="exampleRadios3">
+                                Disabled
+                            </label>
+                        </div>
+                        <p></p>
+                        Grade focus:
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                9th Grade
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                10th Grade
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                11th Grade
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                12th Grade
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Freshman
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Sophomore
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Junior
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Senior
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                Graduated
+                            </label>
+                        </div>
+                        <p></p>
+                        Ethinic Group:
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                White
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Black
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Hispanic
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Asian
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                American Indian or Alaska Native
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Middle Eastern
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Two or More Races
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            <label class="form-check-label" for="defaultCheck1">
+                                Prefer Not to Answer
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <div class="row mb-5 col-8">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Event A</h5>
+                <p>
+                    <span>Organizer</span>
+                    <span style="color:#58585c; float: right;">Date: **/**/****</span>
+                </p>
+                <p class="card-text">Event details: Lorem ipsum dolor sit amet. Vel quasi neque est explicabo galisum in earum quam. Et maxime nostrum rem perspiciatis delectus qui voluptas velit ex recusandae nisi deserunt molestiae. Nam distinctio voluptas aut debitis modi aut quisquam sint!</p>
+                <a href="#" class="card-link">Event link</a>
+                </div>
+            </div>
+            <p></p>
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Event B</h5>
+                <p>
+                    <span>Organizer</span>
+                    <span style="color:#58585c; float: right;">Date: **/**/****</span>
+                </p>
+                <p class="card-text">Event details: Lorem ipsum dolor sit amet. Vel quasi neque est explicabo galisum in earum quam. Et maxime nostrum rem perspiciatis delectus qui voluptas velit ex recusandae nisi deserunt molestiae. Nam distinctio voluptas aut debitis modi aut quisquam sint!</p>
+                <a href="#" class="card-link">Event link</a>
+                </div>
+            </div>
+            <p></p>
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Event C</h5>
+                <p>
+                    <span>Organizer</span>
+                    <span style="color:#58585c; float: right;">Date: **/**/****</span>
+                </p>
+                <p class="card-text">Event details: Lorem ipsum dolor sit amet. Vel quasi neque est explicabo galisum in earum quam. Et maxime nostrum rem perspiciatis delectus qui voluptas velit ex recusandae nisi deserunt molestiae. Nam distinctio voluptas aut debitis modi aut quisquam sint!</p>
+                <a href="#" class="card-link">Event link</a>
+                </div>
+            </div>
+        </div>
+  </body>
+</html>
