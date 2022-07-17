@@ -31,9 +31,15 @@ public class ResourceListServlet extends HttpServlet {
             Entity entity = results.next();
 
             String id = entity.getString("organizerName");
+            // String title = entity.getString("title");
+            // long timestamp = entity.getLong("timestamp");            
 
+            // TODO: use in case this code is helpful
             // create new resource here once JS from front-end is done
             // add resource object to arrayList
+
+            // Task task = new Task(id, title, timestamp);
+            // tasks.add(task);
         }
         Gson gson = new Gson();
         response.setContentType("application/json;");
