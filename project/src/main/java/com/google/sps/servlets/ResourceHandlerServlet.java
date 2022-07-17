@@ -18,7 +18,7 @@ public class ResourceHandlerServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Get the values entered by the user
-        String organizerName = request.getParameter("inputOrganizerName");
+        String organizerName = request.getParameter("inputName");
         String organizerEmail = request.getParameter("inputEmail");
         // String id = request.getParameter("greeting-container");
         String eventName = request.getParameter("inputEventName");
@@ -27,7 +27,9 @@ public class ResourceHandlerServlet extends HttpServlet {
         String location = request.getParameter("inputEventLocation");
         String link = request.getParameter("inputLink");
         String description = request.getParameter("inputDesciption");
-        // String[] ethnicity;
+        String ethnicity = request.getParameter("inlineCheckboxOptions");
+
+        // for(int i=0; i<)
 
         // Print the value so you can see it in the server logs.
         System.out.println("You submitted: " + organizerName);
@@ -35,6 +37,7 @@ public class ResourceHandlerServlet extends HttpServlet {
         System.out.println("You submitted: " + eventName);
         System.out.println("You submitted: " + eventDate);
         System.out.println("You submitted: " + location);
+        System.out.println("You submitted: " + ethnicity);
 
         // Datastore code
 
@@ -45,6 +48,6 @@ public class ResourceHandlerServlet extends HttpServlet {
         response.getWriter().println("You submitted: " + eventName);
         response.getWriter().println("You submitted: " + eventDate);
         response.getWriter().println("You submitted: " + location);
-
+        response.getWriter().println("You submitted: " + ethnicity);
     }
 }
