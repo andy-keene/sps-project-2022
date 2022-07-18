@@ -17,7 +17,7 @@
     <!-- Project-specific properties -->
     <exec.mainClass>com.google.sps.ServerMain</exec.mainClass>
     <!-- Use your own project ID during development HERE! -->
-    <googleCloudProjectId>echen-sps-summer22</googleCloudProjectId>
+    <googleCloudProjectId>summer22-sps-33</googleCloudProjectId>
   </properties>
 
   <dependencies>
