@@ -41,9 +41,10 @@ public class ResourceHandlerServlet extends HttpServlet {
 
         // Datastore code
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Task");
+        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
         FullEntity taskEntity =
             Entity.newBuilder(keyFactory.newKey())
+                .set("organizerName", organizerName)
                 .set("organizerEmail", organizerEmail)
                 .set("eventName", eventName)
                 .set("eventDate", eventDate)
