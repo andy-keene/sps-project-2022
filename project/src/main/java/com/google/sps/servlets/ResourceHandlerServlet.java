@@ -40,15 +40,16 @@ public class ResourceHandlerServlet extends HttpServlet {
         System.out.println("You submitted: " + ethnicity);
 
         // Datastore code
-        String title = request.getParameter("title");
-        long timestamp = System.currentTimeMillis();
-
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Task");
+        KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
         FullEntity taskEntity =
             Entity.newBuilder(keyFactory.newKey())
-                .set("title", title)
-                .set("timestamp", timestamp)
+                .set("organizerName", organizerName)
+                .set("organizerEmail", organizerEmail)
+                .set("eventName", eventName)
+                .set("eventDate", eventDate)
+                .set("location", location)
+                .set("ethnicity", ethnicity)
                 .build();
         datastore.put(taskEntity);
         response.sendRedirect("/index.html");
