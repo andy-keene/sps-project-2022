@@ -5,6 +5,7 @@ import com.google.cloud.datastore.DatastoreOptions;
 import com.google.cloud.datastore.Entity;
 import com.google.cloud.datastore.FullEntity;
 import com.google.cloud.datastore.KeyFactory;
+import com.google.cloud.datastore.Value;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -93,6 +94,7 @@ public class ResourceHandlerServlet extends HttpServlet {
         System.out.println("You submitted: " + link);
         System.out.println("You submitted: " + description);
 
+        int[] hi = { 1, 2, 3 };
         // Datastore code
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
@@ -105,7 +107,7 @@ public class ResourceHandlerServlet extends HttpServlet {
                 .set("location", location)
                 .set("link", link)
                 .set("description", description)
-                // .set("ageGroup", ageGroup)
+                .set("ageGroup", hi[0], hi[1], hi[2])
                 // .set("ethnicities", ethnicities)
                 .build();
         datastore.put(taskEntity);
