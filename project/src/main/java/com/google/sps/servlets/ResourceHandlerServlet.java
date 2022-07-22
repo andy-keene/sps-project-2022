@@ -52,7 +52,7 @@ public class ResourceHandlerServlet extends HttpServlet {
                 .set("ethnicity", ethnicity)
                 .build();
         datastore.put(taskEntity);
-        response.sendRedirect("/index.html");
+        response.sendRedirect("/event-page.html");
 
         // Write the value to the response so the user can see it
         response.setContentType("text/html;");
