@@ -115,14 +115,14 @@ public class ResourceHandlerServlet extends HttpServlet {
         response.sendRedirect("/event-page.html");
 
         // Write the value to the response so the user can see it
-        response.setContentType("text/html;");
-        response.getWriter().println("Organizer name: " + organizerName);
-        response.getWriter().println("Organizer email: " + organizerEmail);
-        response.getWriter().println("Event name: " + eventName);
-        response.getWriter().println("Event date: " + eventDate);
-        response.getWriter().println("Location: " + location);
-        response.getWriter().println("Location: " + link);
-        response.getWriter().println("Location: " + description);
+        // response.setContentType("text/html;");
+        // response.getWriter().println("Organizer name: " + organizerName);
+        // response.getWriter().println("Organizer email: " + organizerEmail);
+        // response.getWriter().println("Event name: " + eventName);
+        // response.getWriter().println("Event date: " + eventDate);
+        // response.getWriter().println("Location: " + location);
+        // response.getWriter().println("Link: " + link);
+        // response.getWriter().println("Description: " + description);
 
         // response.getWriter().println("ageGroup count: " + ageGroup.size());
         // response.getWriter().println("ethnicities count: " + ethnicities.size());
