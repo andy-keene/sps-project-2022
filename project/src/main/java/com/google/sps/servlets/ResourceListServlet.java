@@ -41,8 +41,8 @@ public class ResourceListServlet extends HttpServlet {
             String location = entity.getString("location");
             String link = entity.getString("link");
             String description = entity.getString("description");
-            List<String> ageGroup = entity.getValue("ageGroup");
-            List<String> ethnicities = entity.getValue("description");
+            String ageGroup = entity.getString("ageGroup");
+            String ethnicities = entity.getString("description");
 
             // Task task = new Task(id, title, timestamp);
             // tasks.add(task);
