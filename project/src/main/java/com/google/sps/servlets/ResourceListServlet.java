@@ -27,8 +27,6 @@ public class ResourceListServlet extends HttpServlet {
                 .build();
         QueryResults<Entity> results = datastore.run(query);
 
-        List<String> temp = new ArrayList<>(Arrays.asList("String", "String2"));
-
         List<Resource> formResponses = new ArrayList<>();
         while (results.hasNext()) {
             Entity entity = results.next();
@@ -44,8 +42,8 @@ public class ResourceListServlet extends HttpServlet {
             String ageGroup = entity.getString("ageGroup");
             String ethnicities = entity.getString("description");
 
-            // Task task = new Task(id, title, timestamp);
-            // tasks.add(task);
+            Resource resource = new Resource(id, organizerName, organizerEmail, eventName, eventDate, location, link, description, ageGroup, ethnicities);
+            formResponses.add(resource);
         }
         Gson gson = new Gson();
         response.setContentType("application/json;");
