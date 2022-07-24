@@ -28,7 +28,7 @@ public class ResourceHandlerServlet extends HttpServlet {
         String location = request.getParameter("inputEventLocation");
         String link = request.getParameter("inputLink");
         String description = request.getParameter("inputDesciption");
-        String ageGroup = request.getParameter("inputDesciption");
+        String ageGroup = request.getParameter("ageGroup");
         String ethnicity = request.getParameter("ethnicity");
 
         // Create array for age groups
@@ -112,7 +112,7 @@ public class ResourceHandlerServlet extends HttpServlet {
                 .set("ethnicity", ethnicity)
                 .build();
         datastore.put(taskEntity);
-        response.sendRedirect("/event-page.html");
+        response.sendRedirect("/view-events.html");
 
         // Write the value to the response so the user can see it
         // response.setContentType("text/html;");

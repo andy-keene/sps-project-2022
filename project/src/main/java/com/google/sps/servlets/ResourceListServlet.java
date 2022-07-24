@@ -23,8 +23,7 @@ public class ResourceListServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
-        Query<Entity> query = Query.newEntityQueryBuilder().setKind("Resource")
-                .build();
+        Query<Entity> query = Query.newEntityQueryBuilder().setKind("Resource").build();
         QueryResults<Entity> results = datastore.run(query);
 
         List<Resource> formResponses = new ArrayList<>();
