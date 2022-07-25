@@ -2,6 +2,7 @@ package com.google.sps.servlets;
 
 public final class Resource {
     private final long id;
+    private final long timestamp;
     private final String organizerName;
     private final String organizerEmail;
     private final String eventName;
@@ -12,8 +13,9 @@ public final class Resource {
     private final String ageGroup;
     private final String ethnicity;
 
-    public Resource(long id, String organizerName, String organizerEmail, String eventName, String eventDate, String location, String link, String description, String ageGroup, String ethnicity) {
+    public Resource(long id, long timestamp, String organizerName, String organizerEmail, String eventName, String eventDate, String location, String link, String description, String ageGroup, String ethnicity) {
         this.id = id;
+        this.timestamp = timestamp;
         this.organizerName = organizerName;
         this.organizerEmail = organizerEmail;
         this.eventName = eventName;

@@ -31,6 +31,7 @@ public class ResourceListServlet extends HttpServlet {
             Entity entity = results.next();
 
             long id = entity.getKey().getId();
+            long timestamp = entity.getLong("timestamp");
             String organizerName = entity.getString("organizerName");
             String organizerEmail = entity.getString("organizerEmail");
             String eventName = entity.getString("eventName");
@@ -41,7 +42,7 @@ public class ResourceListServlet extends HttpServlet {
             String ageGroup = entity.getString("ageGroup");
             String ethnicities = entity.getString("ethnicity");
 
-            Resource resource = new Resource(id, organizerName, organizerEmail, eventName, eventDate, location, link, description, ageGroup, ethnicities);
+            Resource resource = new Resource(id, timestamp, organizerName, organizerEmail, eventName, eventDate, location, link, description, ageGroup, ethnicities);
             formResponses.add(resource);
         }
         Gson gson = new Gson();

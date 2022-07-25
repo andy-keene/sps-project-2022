@@ -21,6 +21,7 @@ public class ResourceHandlerServlet extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Get the values entered by the user
+        long timestamp = System.currentTimeMillis();
         String organizerName = request.getParameter("inputName");
         String organizerEmail = request.getParameter("inputEmail");
         String eventName = request.getParameter("inputEventName");
@@ -100,7 +101,8 @@ public class ResourceHandlerServlet extends HttpServlet {
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
         FullEntity taskEntity =
-            Entity.newBuilder(keyFactory.newKey())
+                Entity.newBuilder(keyFactory.newKey())
+                .set("timestamp", timestamp)
                 .set("organizerName", organizerName)
                 .set("organizerEmail", organizerEmail)
                 .set("eventName", eventName)
