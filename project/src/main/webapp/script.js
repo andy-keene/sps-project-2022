@@ -1,12 +1,6 @@
-function addMessage() {
-  // Add it to the page.
-  const greetingContainer = document.getElementById('greeting-container');
-  greetingContainer.innerText = "Stop clicking buttons and get to work!";
-}
-  
 function loadEvent() {
     fetch('/form-responses').then(response => response.json()).then((events) => {
-      var infomationdisplay = document.getElementById('event-details');
+      var informationDisplay = document.getElementById('event-details');
       events.forEach((event) => {
         const card = document.createElement('div');
         card.classList = 'card-body';
@@ -16,11 +10,11 @@ function loadEvent() {
                 <div class="card-body">
                 <h5 class="card-title">${event.eventName}</h5>
                 <p>
-                    <span>Email: ${event.organizerName}</span>
+                    <span>${event.organizerName}</span>
                     <span style="color:#58585c; float: right;">Date: ${event.eventDate}</span>
                 </p>
                 <p>
-                    <span>${event.organizerEmail}</span>
+                    <span>Email: ${event.organizerEmail}</span>
                     <span style="color:#58585c; float: right;">Location: ${event.location}</span>
                 </p>
                 <p>
@@ -33,7 +27,7 @@ function loadEvent() {
             </div>
             <p></p>
         `;
-        infomationdisplay.innerHTML += information;
+        informationDisplay.innerHTML += information;
       })
     });
 }
