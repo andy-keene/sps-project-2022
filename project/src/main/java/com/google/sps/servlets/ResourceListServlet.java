@@ -42,7 +42,17 @@ public class ResourceListServlet extends HttpServlet {
             String ageGroup = entity.getString("ageGroup");
             String ethnicities = entity.getString("ethnicity");
 
-            Resource resource = new Resource(id, timestamp, organizerName, organizerEmail, eventName, eventDate, location, link, description, ageGroup, ethnicities);
+            Resource resource = new Resource(id, timestamp, organizerName, organizerEmail, eventName, eventDate,
+                    location, link, description, ageGroup, ethnicities);
+
+            // Example, how to handle a native array. Documentation:
+            // https://cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.Entity
+            if (entity.contains("colors")) {
+                // TBD: Translate from List<Value> to List<String> ; casting does not work.
+                // List<String> colors = (List<String>)entity.getList("colors");
+                // resource.setColors(colors.toArray());
+            }
+
             formResponses.add(resource);
         }
         Gson gson = new Gson();
