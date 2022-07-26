@@ -11,7 +11,9 @@ public final class Resource {
     private final String link;
     private final String description;
     private final String ageGroup;
+    private final String[] ageGroupList;
     private final String ethnicity;
+    private final String[] ethinicityList;
 
     public Resource(long id, long timestamp, String organizerName, String organizerEmail, String eventName, String eventDate, String location, String link, String description, String ageGroup, String ethnicity) {
         this.id = id;
@@ -21,9 +23,11 @@ public final class Resource {
         this.eventName = eventName;
         this.eventDate = eventDate;
         this.ageGroup = ageGroup;
+        this.ageGroupList = ageGroup.split(", ");
         this.location = location;
         this.link = link;
         this.description = description;
         this.ethnicity = ethnicity;
+        this.ethinicityList = ethnicity.split(", ");
     }
 }
