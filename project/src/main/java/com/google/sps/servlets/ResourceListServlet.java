@@ -43,7 +43,18 @@ public class ResourceListServlet extends HttpServlet {
             String ethnicities = entity.getString("ethnicity");
 
             Resource resource = new Resource(id, timestamp, organizerName, organizerEmail, eventName, eventDate, location, link, description, ageGroup, ethnicities);
-            formResponses.add(resource);
+            // check if we should add
+
+            // Get stuff from filter 
+            String age = request.getParameter("age");
+
+            Resource filterResource = resources.stream()
+                    .filter(resource -> resource.ageGroup.contains(age));
+            // yes >
+            if (filteredResources != null) {
+                formResponses.add(resource);
+            }
+            // no then skip 
         }
         Gson gson = new Gson();
         response.setContentType("application/json;");
