@@ -7,6 +7,10 @@ import com.google.cloud.datastore.FullEntity;
 import com.google.cloud.datastore.KeyFactory;
 import com.google.cloud.datastore.Value;
 
+import com.google.cloud.datastore.ListValue;
+import java.util.stream.Collectors;
+import java.util.Objects;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.List;
 import java.io.IOException;
@@ -18,10 +22,25 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/resource-handler")
 public class ResourceHandlerServlet extends HttpServlet {
 
+    private static final List<String> ageGroupOptions = new ArrayList<>(Arrays.asList(
+            "ageGroup-1",
+            "ageGroup-2",
+            "ageGroup-3",
+            "ageGroup-4",
+            "ageGroup-5",
+            "ageGroup-6",
+            "ageGroup-7",
+            "ageGroup-8",
+            "ageGroup-9"));
+
+    private static final List<String> enthnicityOptions = new ArrayList<>(Arrays.asList(
+            // do the same for enthnicity
+            "enthnicity-1"));
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         // Get the values entered by the user
-        long timestamp = System.currentTimeMillis();
+
         String organizerName = request.getParameter("inputName");
         String organizerEmail = request.getParameter("inputEmail");
         String eventName = request.getParameter("inputEventName");
@@ -29,80 +48,23 @@ public class ResourceHandlerServlet extends HttpServlet {
         String location = request.getParameter("inputEventLocation");
         String link = request.getParameter("inputLink");
         String description = request.getParameter("inputDesciption");
-        String ageGroup = request.getParameter("ageGroup");
-        String ethnicity = request.getParameter("ethnicity");
 
-        // Create array for age groups
-        // List<String> ageGroup = new ArrayList<>();
+        // Hack to store a list as a comma-delimited string
+        String ageGroups = ageGroupOptions.stream()
+                .map(request::getParameter)
+                .filter(Objects::nonNull)
+                .collect(Collectors.joining(","));
 
-        // if (request.getParameter("gradeNine") != null) {
-        //     ageGroup.add("Grade 9");
-        // }
-        // if (request.getParameter("gradeTen") != null) {
-        //     ageGroup.add("Grade 10");
-        // }
-        // if (request.getParameter("gradeEleven") != null) {
-        //     ageGroup.add("Grade 11");
-        // }
-        // if (request.getParameter("gradeTwelve") != null) {
-        //     ageGroup.add("Grade 12");
-        // }
-        // if (request.getParameter("freshman") != null) {
-        //     ageGroup.add("Freshman");
-        // }
-        // if (request.getParameter("sophomore") != null) {
-        //     ageGroup.add("Sophomore");
-        // }
-        // if (request.getParameter("junior") != null) {
-        //     ageGroup.add("Junior");
-        // }
-        // if (request.getParameter("senior") != null) {
-        //     ageGroup.add("Senior");
-        // }
-        
-        // Create array for ethnicities
-        // List<String> ethnicities = new ArrayList<>();
-
-        // if (request.getParameter("white") != null) {
-        //     ethnicities.add("White");
-        // }
-        // if (request.getParameter("black") != null) {
-        //     ethnicities.add("Black");
-        // }
-        // if (request.getParameter("hispanic") != null) {
-        //     ethnicities.add("Hispanic");
-        // }
-        // if (request.getParameter("asian") != null) {
-        //     ethnicities.add("Asian");
-        // }
-        // if (request.getParameter("americanIndian") != null) {
-        //     ethnicities.add("American Indian or Alaska Native");
-        // }
-        // if (request.getParameter("middleEastern") != null) {
-        //     ethnicities.add("Middle Eastern");
-        // }
-        // if (request.getParameter("twoOrMore") != null) {
-        //     ethnicities.add("2 or more");
-        // }
-        // if (request.getParameter("notToAnswer") != null) {
-        //     ethnicities.add("Prefer not to answer");
-        // }
-
-        // Print the value so you can see it in the server logs.
-        System.out.println("You submitted: " + organizerName);
-        System.out.println("You submitted: " + organizerEmail);
-        System.out.println("You submitted: " + eventName);
-        System.out.println("You submitted: " + eventDate);
-        System.out.println("You submitted: " + location);
-        System.out.println("You submitted: " + link);
-        System.out.println("You submitted: " + description);
+        String ethnicities = enthnicityOptions.stream()
+                .map(request::getParameter)
+                .filter(Objects::nonNull)
+                .collect(Collectors.joining(","));
 
         // Datastore code
         Datastore datastore = DatastoreOptions.getDefaultInstance().getService();
         KeyFactory keyFactory = datastore.newKeyFactory().setKind("Resource");
-        FullEntity taskEntity =
-                Entity.newBuilder(keyFactory.newKey())
-                .set("timestamp", timestamp)
+        FullEntity taskEntity = Entity.newBuilder(keyFactory.newKey())
+                .set("timestamp", System.currentTimeMillis())
                 .set("organizerName", organizerName)
                 .set("organizerEmail", organizerEmail)
                 .set("eventName", eventName)
@@ -110,30 +72,25 @@ public class ResourceHandlerServlet extends HttpServlet {
                 .set("location", location)
                 .set("link", link)
                 .set("description", description)
-                .set("ageGroup", ageGroup)
-                .set("ethnicity", ethnicity)
+                // Example of how to store a list as type String
+                .set("ageGroup", ageGroups)
+                .set("ethnicity", ethnicities)
+                // Documentation
+                // https://cloud.google.com/datastore/docs/samples/datastore-array-value#datastore_array_value-java
+                // https://cloud.google.com/java/docs/reference/google-cloud-datastore/latest/com.google.cloud.datastore.ListValue#com_google_cloud_datastore_ListValue_newBuilder__
+                // To pass in a single list, per the documentation we must create one of type List<Value> 
+                // Example of how to create a true array in Datastore
+                .set("colors", ListValue.of("red", "blue"))
                 .build();
         datastore.put(taskEntity);
         response.sendRedirect("/view-events.html");
+    }
 
-        // Write the value to the response so the user can see it
-        // response.setContentType("text/html;");
-        // response.getWriter().println("Organizer name: " + organizerName);
-        // response.getWriter().println("Organizer email: " + organizerEmail);
-        // response.getWriter().println("Event name: " + eventName);
-        // response.getWriter().println("Event date: " + eventDate);
-        // response.getWriter().println("Location: " + location);
-        // response.getWriter().println("Link: " + link);
-        // response.getWriter().println("Description: " + description);
-
-        // response.getWriter().println("ageGroup count: " + ageGroup.size());
-        // response.getWriter().println("ethnicities count: " + ethnicities.size());
-
-        // for (int i = 0; i < ageGroup.size(); i++) {
-        //     response.getWriter().println("AgeGroup: " + ageGroup.get(i));
-        // }
-        // for (int i = 0; i < ethnicities.size(); i++) {
-        //     response.getWriter().println("Ethnicity: " + ethnicities.get(i));
-        // }
+    /**
+     * Retrieves the value of the provided parameter name if it exists; otherwise
+     * returns an empty String
+     */
+    private static String getOrDefault(HttpServletRequest request, String parameterName) {
+        return "";
     }
 }
