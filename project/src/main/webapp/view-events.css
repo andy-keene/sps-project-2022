@@ -22,3 +22,9 @@
 .card-body{
     flex-direction: row;
 }
+
+#back{
+    margin-top: 10px;
+    margin-left: 10px;
+    position: absolute;
+}
