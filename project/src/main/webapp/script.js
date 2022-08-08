@@ -1,7 +1,9 @@
 function loadEvent() {
     fetch('/form-responses').then(response => response.json()).then((events) => {
-      var informationDisplay = document.getElementById('event-details');
-      events.forEach((event) => {
+        var checkAge = getAge();
+        console.log(checkAge);
+        var informationDisplay = document.getElementById('event-details');
+        events.forEach((event) => {
         const card = document.createElement('div');
         card.classList = 'card-body';
     
@@ -30,4 +32,16 @@ function loadEvent() {
         informationDisplay.innerHTML += information;
       })
     });
+}
+
+function getAge() {
+    var checkAge = document.getElementsByClassName('checkAge');
+    let arrCheckedAges = [];
+
+    for (i = 0; i < checkAge.length; i++){
+        if (checkAge[i].checked === true) {
+            arrCheckedAges.push(checkAge[i].name);
+        }
+    }
+    return arrCheckedAges;
 }
